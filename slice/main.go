@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// s := []int{1, 2, 3} //slice literal
 	// fmt.Println("slice", s, "len", len(s), "cap", cap(s))
@@ -18,8 +20,10 @@ func main() {
 	// fmt.Println(len(s))
 	// fmt.Println(cap(s))
 
-	// var s[] int		//empty slice or nill slice
-	// fmt.Println(s)
+	var s []int      //empty slice or nill slice [1]
+	s = append(s, 1) //[1]
+	fmt.Println(s)
+
 }
 
 //slice has total 3 element in it, 1. pointer, 2. length, 3.capacity
@@ -34,4 +38,8 @@ func main() {
 7. Make func with length and capacity
 8. In slice you can't set more capacity than the actual size of the array, if u do it then it will throw run time error
 9. var s[] int		//empty slice or nill slice
+*/
+
+/*
+1.Every function creates a stack frame
 */
