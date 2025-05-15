@@ -3,32 +3,49 @@ package main
 import "fmt"
 
 func main() {
-	// s := []int{1, 2, 3} //slice literal
-	// fmt.Println("slice", s, "len", len(s), "cap", cap(s))
+	var x []int      //[], len = 0, cap = 0
+	x = append(x, 1) //[1], len = 1, cap =1
+	x = append(x, 2)
+	x = append(x, 3)
 
-	// s := make([]int, 3) //[0, 0, 0], len = 3, cap = 3
-	// s[0] = 5            //[5, 0, 0], len = 3, cap = 3
+	y := x
 
-	// fmt.Println(s)
-	// fmt.Println(len(s))
-	// fmt.Println(cap(s))
+	x = append(x, 4)
+	fmt.Println(y, len(y), cap(y))
+	y = append(y, 5)
 
-	// s := make([]int, 3, 5) //[0, 0, 0], len = 3, cap = 5
-	// s[0] = 5               //[5, 0, 0], len = 3, cap = 5
-	// s[2] = 10              //[5, 0, 10], len = 3, cap = 5
+	x[0] = 10
 
-	// fmt.Println(len(s))
-	// fmt.Println(cap(s))
-
-	var s []int      //empty slice or nill slice [1]
-	s = append(s, 1) //[1]
-	fmt.Println(s)
-
+	fmt.Println(x) //[1 2 3 5]
+	fmt.Println(y) //[1 2 3 5]
 }
 
-//slice has total 3 element in it, 1. pointer, 2. length, 3.capacity
+//----------------------------------------------------------------------
+// func main() {
+// 	// s := []int{1, 2, 3} //slice literal
+// 	// fmt.Println("slice", s, "len", len(s), "cap", cap(s))
+
+// 	// s := make([]int, 3) //[0, 0, 0], len = 3, cap = 3
+// 	// s[0] = 5            //[5, 0, 0], len = 3, cap = 3
+
+// 	// fmt.Println(s)
+// 	// fmt.Println(len(s))
+// 	// fmt.Println(cap(s))
+
+// 	// s := make([]int, 3, 5) //[0, 0, 0], len = 3, cap = 5
+// 	// s[0] = 5               //[5, 0, 0], len = 3, cap = 5
+// 	// s[2] = 10              //[5, 0, 10], len = 3, cap = 5
+
+// 	// fmt.Println(len(s))
+// 	// fmt.Println(cap(s))
+
+// 	// var s []int      //empty slice or nill slice [1]
+// 	// s = append(s, 1) //[1]
+// 	// fmt.Println(s)
+// }
 
 /*
+//slice has total 3 element in it, 1. pointer, 2. length, 3.capacity
 1. slice from an existing array
 2. slice from a slice
 3. s := []int{1, 2, 3} //slice literal
@@ -38,6 +55,10 @@ func main() {
 7. Make func with length and capacity
 8. In slice you can't set more capacity than the actual size of the array, if u do it then it will throw run time error
 9. var s[] int		//empty slice or nill slice
+10. Slice underlying array rule => 1024 -> 100% increase, 1024 < 25% increase
+11.When you append an element to a slice in Go and its length equals its capacity, the Go runtime allocates a new underlying array with a larger capacity.
+	I. For capacities up to 1024, the capacity typically doubles.
+	II. For capacities above 1024, it grows by approximately 25% each time.
 */
 
 /*
