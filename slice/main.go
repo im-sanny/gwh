@@ -2,23 +2,16 @@ package main
 
 import "fmt"
 
-func main() {
-	var x []int      //[], len = 0, cap = 0
-	x = append(x, 1) //[1], len = 1, cap =1
-	x = append(x, 2)
-	x = append(x, 3)
-
-	y := x
-
-	x = append(x, 4)
-	fmt.Println(y, len(y), cap(y))
-	y = append(y, 5)
-
-	x[0] = 10
-
-	fmt.Println(x) //[1 2 3 5]
-	fmt.Println(y) //[1 2 3 5]
+func print (numbers ...int){
+	fmt.Println(numbers)
+	fmt.Println(len(numbers))
+	fmt.Println(cap(numbers))
 }
+
+func main(){
+	print(1, 2, 3, 4, 5, 6)
+}
+
 
 //----------------------------------------------------------------------
 // func main() {
@@ -43,7 +36,46 @@ func main() {
 // 	// s = append(s, 1) //[1]
 // 	// fmt.Println(s)
 // }
+//----------------------------------------------------------------------
+// func main() {
+// 	var x []int      //[], len = 0, cap = 0
+// 	x = append(x, 1) //[1], len = 1, cap =1
+// 	x = append(x, 2)
+// 	x = append(x, 3)
 
+// 	y := x
+
+// 	x = append(x, 4)
+// 	fmt.Println(y, len(y), cap(y))
+// 	y = append(y, 5)
+
+// 	x[0] = 10
+
+// 	fmt.Println(x) //[1 2 3 5]
+// 	fmt.Println(y) //[1 2 3 5]
+// }
+//----------------------------------------------------------------------
+// func changeSlice(p []int) []int {
+// 	p[0] = 10
+// 	p = append(p, 11)
+// 	return p
+
+// }
+
+// func main() {
+// 	x := []int{1, 2, 3, 4, 5}
+// 	x = append(x, 6)
+// 	x = append(x, 7)
+
+// 	a := x[4:]
+
+// 	y := changeSlice(a)
+
+// 	fmt.Println(x) //[1 2 3 4 10 6 7]
+// 	fmt.Println(y) //[10 6 7 11]
+// 	fmt.Println(x[0:8])
+// }
+//----------------------------------------------------------------------
 /*
 //slice has total 3 element in it, 1. pointer, 2. length, 3.capacity
 1. slice from an existing array
